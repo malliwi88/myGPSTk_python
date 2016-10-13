@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/RinEdit.dir/RinEdit.cpp.o  -o RinEdit -rdynamic ../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build: 

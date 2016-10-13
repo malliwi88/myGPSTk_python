@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/poscvt.dir/poscvt.cpp.o  -o poscvt -rdynamic ../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build: 

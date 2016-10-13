@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/convertSSEph.dir/convertSSEph.cpp.o  -o convertSSEph -rdynamic ../../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build: 

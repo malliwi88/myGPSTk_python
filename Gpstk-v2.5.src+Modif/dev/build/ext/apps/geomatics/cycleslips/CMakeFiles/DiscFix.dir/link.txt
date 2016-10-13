@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/DiscFix.dir/DiscFix.cpp.o  -o DiscFix -rdynamic ../../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build: 

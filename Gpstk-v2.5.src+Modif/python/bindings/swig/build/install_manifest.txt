@@ -1,0 +1,2 @@
+/home/wallas/gpstk-2.5.src/python/bindings/swig/install_package/gpstk/_gpstk.so
+/home/wallas/gpstk-2.5.src/python/bindings/swig/install_package/gpstk/gpstk.py

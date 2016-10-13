@@ -1,0 +1,7 @@
+/home/wallas/gpstk-2.5.src/python/bindings/swig/build/CMakeFiles/install.dir
+/home/wallas/gpstk-2.5.src/python/bindings/swig/build/CMakeFiles/list_install_components.dir
+/home/wallas/gpstk-2.5.src/python/bindings/swig/build/CMakeFiles/rebuild_cache.dir
+/home/wallas/gpstk-2.5.src/python/bindings/swig/build/CMakeFiles/_gpstk.dir
+/home/wallas/gpstk-2.5.src/python/bindings/swig/build/CMakeFiles/install/strip.dir
+/home/wallas/gpstk-2.5.src/python/bindings/swig/build/CMakeFiles/install/local.dir
+/home/wallas/gpstk-2.5.src/python/bindings/swig/build/CMakeFiles/edit_cache.dir

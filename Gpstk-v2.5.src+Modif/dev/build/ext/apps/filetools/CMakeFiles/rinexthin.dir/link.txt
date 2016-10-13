@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/rinexthin.dir/RinexThin.cpp.o  -o rinexthin -rdynamic ../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build: 

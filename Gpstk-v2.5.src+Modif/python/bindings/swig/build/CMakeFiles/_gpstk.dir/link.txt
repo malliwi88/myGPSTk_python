@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=c++11  -shared  -o _gpstk.so CMakeFiles/_gpstk.dir/gpstkPYTHON_wrap.cxx.o  -L/home/wallas/gpstk-2.5/lib -lgpstk /home/wallas/anaconda3/envs/py27/lib/libpython2.7.so -Wl,-rpath,/home/wallas/gpstk-2.5/lib:/home/wallas/anaconda3/envs/py27/lib: 

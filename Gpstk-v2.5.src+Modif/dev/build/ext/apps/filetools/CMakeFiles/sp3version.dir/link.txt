@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/sp3version.dir/sp3version.cpp.o  -o sp3version -rdynamic ../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build: 

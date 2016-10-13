@@ -1,0 +1,1 @@
+/usr/bin/c++      -lpthread CMakeFiles/corltr.dir/corltr.cpp.o  -o corltr -rdynamic libsimlib.a ../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build 

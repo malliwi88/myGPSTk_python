@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/RinNav.dir/RinNav.cpp.o  -o RinNav -rdynamic ../../../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build: 

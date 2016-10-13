@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wallas/gpstk-2.5.src/dev/ext/apps/clocktools/rmoutlier.cpp
+iostream
+-
+vector
+-
+string
+-
+stdio.h
+-
+math.h
+-
+

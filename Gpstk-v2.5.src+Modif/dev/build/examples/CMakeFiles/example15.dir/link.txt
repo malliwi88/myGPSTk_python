@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/example15.dir/example15.cpp.o  -o example15 -rdynamic ../libgpstk.so -Wl,-rpath,/home/wallas/gpstk-2.5.src/dev/build 
