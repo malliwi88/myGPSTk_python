@@ -33,7 +33,18 @@ SET(PYTHON_LIBRARIES "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 SET(PYTHON_LIBRARY "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 ```
 
-## Para instalar esta versión
+## For install this version you need (Para instalar esta versión)
+
+### Dependences
+
+>```bash
+sudo apt-get install g++ cmake swig 
+```
+Optional
+>```bash
+sudo apt-get install doxygen
+```
+
 
 ### Install Anaconda 
 
