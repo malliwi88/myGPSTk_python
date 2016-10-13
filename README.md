@@ -1,5 +1,12 @@
 ## Version 2.5 (gpstk-2.5.src+Modif)
 
+**IMPORTANT**
+
+>Always you MUST BE change this line on `file python/bindings/swig/CMakeLists.txt`
+```python
+set (HOME "/home/<-YOUR-PC-NAME-HERE->")
+```
+---
 
 Esta versión ya esta modificada con los siguientes ajustes
 
