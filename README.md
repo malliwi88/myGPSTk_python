@@ -6,6 +6,8 @@
 ```python
 set (HOME "/home/<-YOUR-PC-NAME-HERE->")
 ```
+For my case `whole procedure - Assumes that Machine name is **wallas**` and the home foldes absolute path is **/home/wallas/**
+
 ---
 
 Esta versión ya esta modificada con los siguientes ajustes
@@ -81,8 +83,9 @@ bash Anaconda2-4.2.0-Linux-x86.sh
 It's with the propose that you have a isolated GPSTk development enviroment
 
 >```bash
-conda create -n py27 python=2.7 notebook jupyter numpy scipy matplotlib ipykernel sympy scikit-image nvector
+conda create -n py27 python=2.7 notebook jupyter numpy scipy matplotlib ipykernel sympy scikit-image
 source activate py27
+pip install nvector
 >```
 
 
@@ -122,6 +125,16 @@ you can see `gpstk` in the list of packages
 >```bash
 conda list
 >```
+
+check if the file **libgpstk.so** library is on `${HOME}/anaconda3/envs/py27/lib`
+>```bash
+locate libgpstk.so
+>```
+If file isn't in this path, copy it from `${HOME}/gpstk-2.5/lib/libgpstk.so` to `${HOME}/anaconda3/envs/py27/lib`
+>```bash
+cp ${HOME}/gpstk-2.5/lib/libgpstk.so ${HOME}/anaconda3/envs/py27/lib
+>```
+
 
 ### Run example codes
 
