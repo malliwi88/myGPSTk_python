@@ -45,22 +45,22 @@ sudo apt-get install gcc g++ cmake
 #### Build && Compiling Swig 3.0.10 from sources
 
 >- Dependences
->>```bash
+```bash
 sudo apt-get install libpcre3 libpcre3-dev
 ```
 - Swig download 
 http://www.swig.org/download.html
 - build
->>```bash
+```bash
 ./configure
 make -j4
 ```
 - installation
->>```bash
+```bash
 sudo make install
 ```
 - verify versiòn
->>```bash
+```bash
 swig -version
 ```
 
