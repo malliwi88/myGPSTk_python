@@ -34,14 +34,36 @@ SET(PYTHON_INCLUDE_PATH "${HOME}/anaconda3/envs/py27/include/python2.7/")
 SET(PYTHON_LIBRARIES "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 SET(PYTHON_LIBRARY "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 ```
-
 ## For install this version you need (Para instalar esta versión)
 
 ### Dependences
 
 >```bash
-sudo apt-get install g++ cmake swig 
+sudo apt-get install gcc g++ cmake 
 ```
+
+#### Build && Compiling Swig 3.0.10 from sources
+
+>- Dependences
+```bash
+sudo apt-get install libpcre3 libpcre3-dev
+```
+- Swig download 
+http://www.swig.org/download.html
+- build
+```bash
+./configure
+make -j4
+```
+- installation
+```bash
+sudo make install
+```
+- verify versiòn
+```bash
+swig -version
+```
+
 Optional
 >```bash
 sudo apt-get install doxygen
