@@ -95,7 +95,7 @@ pip install nvector
 
 >on LINUX:
 >>```bash
-bash script_gpstk.sh -c -p -l ~/anaconda3/envs/py27/lib/python2.7/site-packages -s ~/gpstk-2.5
+bash script_gpstk.sh -bic -p -l ~/anaconda3/envs/py27/lib/python2.7/site-packages -s ~/gpstk-2.5
 >>```
 
 >on MACOS:
