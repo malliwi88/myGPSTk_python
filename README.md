@@ -105,7 +105,7 @@ bash Anaconda2-4.2.0-Linux-x86.sh
 It's with the propose that you have a isolated GPSTk development enviroment
 
 >```bash
-conda create -n py27 python=2.7 notebook jupyter numpy scipy matplotlib ipykernel sympy pandas pytables
+conda create -n py27 python=2.7 notebook jupyter numpy scipy matplotlib ipykernel sympy pyproj numba pandas pytables
 source activate py27
 pip install nvector
 >```
