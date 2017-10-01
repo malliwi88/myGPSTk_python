@@ -39,7 +39,7 @@ SET(PYTHON_LIBRARY "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 ### Dependences
 
 >```bash
-sudo apt-get install gcc g++ cmake 
+sudo apt-get install gcc g++ cmake pandoc
 ```
 
 #### Build && Compiling Swig 3.0.10 from sources
@@ -105,7 +105,7 @@ bash Anaconda2-4.2.0-Linux-x86.sh
 It's with the propose that you have a isolated GPSTk development enviroment
 
 >```bash
-conda create -n py27 python=2.7 notebook jupyter numpy scipy matplotlib ipykernel sympy pyproj numba pandas pytables
+conda create -n py27 python=2.7 notebook jupyter nbconvert numpy scipy matplotlib ipykernel sympy pyproj numba pandas pytables
 source activate py27
 pip install nvector
 >```
