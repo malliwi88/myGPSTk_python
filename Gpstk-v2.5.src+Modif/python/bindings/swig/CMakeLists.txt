@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project( pygpstk )
 
-set (HOME "/home/wallas")
+set (HOME "${HOME}")
 SET(PYTHON_INCLUDE_PATH "${HOME}/anaconda3/envs/py27/include/python2.7/")
 SET(PYTHON_LIBRARIES "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 SET(PYTHON_LIBRARY "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
