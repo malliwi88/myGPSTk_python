@@ -1,8 +1,8 @@
-## Version 2.5 (gpstk-2.5.src+Modif)
+## GPSTk Version 2.5 (gpstk-2.5.src+Modif)
 
 **IMPORTANT**
 
->Always you MUST BE change this line on `file python/bindings/swig/CMakeLists.txt`
+Always you MUST BE change this line on `file python/bindings/swig/CMakeLists.txt`
 ```python
 set (HOME "/home/<-YOUR-PC-NAME-HERE->")
 ```
@@ -14,13 +14,14 @@ Esta versión ya esta modificada con los siguientes ajustes
 
 1. modify file python/bindings/swig/gpstk.i
 
-   comment line 15 (doc.i)
->>``` C
+comment line 15 (doc.i)
+```C
 	//%include "doc/doc.i"
 ```
 
-   in section 4 just after toGloEphemeris
->>``` C
+in section 4 just after **`toGloEphemeris`**
+
+```C
    %rename (toGPSEphemeris) *::operator GPSEphemeris() const;
 ```
 
@@ -28,23 +29,26 @@ Esta versión ya esta modificada con los siguientes ajustes
 
    add the following lines at begin of file (use .so instead of .dylib if on linux)
 
->>```bash
+```bash
 set (HOME "/home/wallas")
 SET(PYTHON_INCLUDE_PATH "${HOME}/anaconda3/envs/py27/include/python2.7/")
 SET(PYTHON_LIBRARIES "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 SET(PYTHON_LIBRARY "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 ```
-## For install this version you need (Para instalar esta versión)
+
+## For install this version you need
 
 ### Dependences
 
->```bash
+```bash
 sudo apt-get install gcc g++ cmake pandoc
 ```
 
-#### Build && Compiling Swig 3.0.10 from sources
+#### Build && Compiling Swig 
 
->- Dependences
+#### 3.0.10 from sources (2018)
+
+- Dependences
 ```bash
 sudo apt-get install libpcre3 libpcre3-dev
 ```
@@ -59,115 +63,172 @@ make -j4
 ```bash
 sudo make install
 ```
-- verify versiòn
+- verify version
 ```bash
 swig -version
 ```
-
 Optional
->```bash
+```bash
 sudo apt-get install doxygen
 ```
 
+#### 3.0.10 or higher from sources (2019)
 
-### Install Anaconda 
+1. Dependencias
 
->you can obtain a Anaconda installer for your SO from [HERE](https://www.continuum.io/downloads)
+> Installation of PCRE
+
+	sudo apt-get install libz-dev libbz2-dev liblzma-dev libreadline-dev 
+
+2. Compile and Install PCRE by running the following commands:
+
+```bash
+	./configure --prefix=/usr                     \
+		    --docdir=/usr/share/doc/pcre-8.42 \
+		    --enable-unicode-properties       \
+		    --enable-pcre16                   \
+		    --enable-pcre32                   \
+		    --enable-pcregrep-libz            \
+		    --enable-pcregrep-libbz2          \
+		    --enable-pcretest-libreadline     \
+		    --disable-static                 &&
+	make
+```
+- To test the results, issue: 
+```bash
+	make check.
+```
+
+- Now, as the root user:
+```bash
+	make install                     &&
+	mv -v /usr/lib/libpcre.so.* /lib &&
+	ln -sfv ../../lib/$(readlink /usr/lib/libpcre.so) /usr/lib/libpcre.so
+```
+
+3. Compile and Install SWIG
+
+- If you plan to run the tests, some fixes are needed for using Perl-5.26:
+
+```bash
+	sed -i 's/\$(PERL5_SCRIPT/-I. &/' Examples/Makefile.in &&
+	sed -i 's/\$command 2/-I. &/' Examples/test-suite/perl5/run-perl-test.pl
+```
+
+- Install SWIG by running the following commands:
+```bash
+	./configure --prefix=/usr                      \
+		    --without-clisp                    \
+		    --without-maximum-compile-warnings &&
+	make
+```
+- To test the results, issue: make -k check TCL_INCLUDE= GOGCC=true. The (un)setting of the two variables GOGCC and TCL_INCLUDE is necessary, since they are not correctly set by configure. The tests are only executed for the languages installed on your machine, so the disk space and SBU values given for the tests may vary, and should be considered as mere orders of magnitude. If you have Python-2.7.15 installed, the Python-3 tests are not run. You can run tests for Python-3 by issuing PY3=1 make check-python-examples followed by PY3=1 make check-python-test-suite. According to SWIG's documentation, the failure of some tests should not be considered harmful.
+
+- Now, as the root user:
+```bash
+	make install &&
+	install -v -m755 -d /usr/share/doc/swig-3.0.12 &&
+	cp -v -R Doc/* /usr/share/doc/swig-3.0.12
+```
+
+## Install Anaconda 
+
+you can obtain a Anaconda installer for your SO from [HERE](https://www.continuum.io/downloads)
 or you can:
 
->#### Anaconda 3.5
- for 64bits
->>```bash
+#### Anaconda 3.5
+* for 64bits
+```bash
 wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
 bash Anaconda3-4.2.0-Linux-x86_64.sh 
 ```
-
->for 32bits
->>```bash
+* for 32bits
+```bash
 wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86.sh
 bash Anaconda3-4.2.0-Linux-x86.sh 
 ```
 
->#### Anaconda 2.7
- for 64bits
->>```bash
+#### Anaconda 2.7
+* for 64bits
+```bash
 wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86_64.sh
 bash Anaconda2-4.2.0-Linux-x86_64.sh 
 ```
 
->for 32bits
->>```bash
+* for 32bits
+```bash
 wget https://repo.continuum.io/archive/Anaconda2-4.2.0-Linux-x86.sh
 bash Anaconda2-4.2.0-Linux-x86.sh 
 ```
 
-###   Create a anaconda enviroment 
+## Create a anaconda enviroment 
+
 It's with the propose that you have a isolated GPSTk development enviroment
 
->```bash
+```bash
 conda create -n py27 python=2.7 notebook jupyter nbconvert numpy scipy matplotlib ipykernel sympy pyproj numba pandas pytables
 source activate py27
 pip install nvector
->```
+```
 
 
-###   run compile and install script:
+## run compile and install script:
 
    (on MACOS DO NOT INSTALL AS ROOT!!!  install as user and it will install under $HOME/.local)
 
->on LINUX:
->>```bash
+* on LINUX:
+```bash
 bash script_gpstk.sh -bc -p -l ~/anaconda3/envs/py27/lib/python2.7/site-packages -s ~/gpstk-2.5
->>```
+```
 
->on MACOS:
->>```bash
+* on MACOS:
+```bash
 ./script_gpstk.sh -c -p -s /opt/gpstk
->>```
+```
 
-###  Add lines to bashrc (BUT NOT AT COMPILE TIME)
+## Add lines to bashrc (BUT NOT AT COMPILE TIME)
 
- make sure the following variables are defined in your bashrc (BUT NOT AT COMPILE TIME), add this lines to `nano  ~/.bashrc`
+make sure the following variables are defined in your bashrc **(BUT NOT AT COMPILE TIME)**, add this lines to `nano  ~/.bashrc`
 
->```bash
+```bash
 export LD_LIBRARY_PATH=/home/wallas/gpstk-2.5/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/home/wallas/anaconda3/envs/py27/lib:$LD_LIBRARY_PATH
->```
+```
 
-###  Install python bindigns
+### Install python bindigns
 
->```bash
+```bash
 cd ~/gpstk-2.5.src/python/bindings/swig/install_package
 python setup.py install --prefix=~/anaconda3/envs/py27
->```
+```
 
 ## Verify your installation
 
-you can see `gpstk` in the list of packages
->```bash
+you can see **`gpstk`** in the list of packages
+```bash
 conda list
->```
+```
 
 check if the file **libgpstk.so** library is on `${HOME}/anaconda3/envs/py27/lib`
->```bash
+```bash
 locate libgpstk.so
->```
+```
 If file isn't in this path, copy it from `${HOME}/gpstk-2.5/lib/libgpstk.so` to `${HOME}/anaconda3/envs/py27/lib`
->```bash
+```bash
 cp ${HOME}/gpstk-2.5/lib/libgpstk.so ${HOME}/anaconda3/envs/py27/lib
->```
+```
 
 
 ### Run example codes
 
 The compilation procedure creates a folder `build*`, in my case `build-wallas-pc-`
->```bash
+```bash
 cd build-wallas-pc-/swig/install_package/examples
 python example1.py 
 ```
 
 the results of code example1.py
->```python
+```python
 Hello world!
    The current civil time is 10/12/2016 03:18:38 UTC
    The current year is 2016
@@ -182,17 +243,17 @@ Hello world!
 
 On a jupyter notebook
 
-remenber you call a ` jupyter kernel python 2.7`, for execute those code cells.
+** remenber you call a `jupyter kernel python 2.7`, for execute those code cells.**
 
 insert on one code cell
->```python
+```python
 import sys
 print sys.version
 import gpstk
 ```
 
 the results of code
->```bash
+```bash
 2.7.12 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:42:40) 
 [GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
 ```
@@ -228,7 +289,7 @@ if __name__ == '__main__':
 
 the results of code
 
->```bash
+```bash
 Earliest time found: 06/10/2004 00:00:00 GPS
 Latest time found:   06/10/2004 00:59:30 GPS
 ```
