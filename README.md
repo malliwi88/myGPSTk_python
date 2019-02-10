@@ -30,7 +30,7 @@ in section 4 just after **`toGloEphemeris`**
    add the following lines at begin of file (use .so instead of .dylib if on linux)
 
 ```bash
-set (HOME "/home/wallas")
+set (HOME "${HOME}")
 SET(PYTHON_INCLUDE_PATH "${HOME}/anaconda3/envs/py27/include/python2.7/")
 SET(PYTHON_LIBRARIES "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
 SET(PYTHON_LIBRARY "${HOME}/anaconda3/envs/py27/lib/libpython2.7.so")
